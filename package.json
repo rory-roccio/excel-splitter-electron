@@ -1,34 +1,53 @@
 {
-  "name": "tesla",
+  "name": "excel-splitter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "This program will divide an XLSX files into chunks of a user defined row number and write CSV files into a user defined directory",
+  "author": "rory-roccio",
+  "main": "electron-starter.js",
+  "build": {
+    "appId": "excel-splitter.id",
+    "productName": "Excel Splitter",
+    "mac": {
+      "category": "excel-splitter.category.type"
+    }
+  },
   "scripts": {
     "test": "jest",
-    "build": "webpack -w"
+    "build": "webpack -w",
+    "start": "electron .",
+    "dist": "electron-builder build -m"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "electron",
+    "excel",
+    "xlsx",
+    "csv"
+  ],
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "copy-webpack-plugin": "^6.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
-    "redux": "^4.0.5",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "xlsx": "^0.16.3"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
+    "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
-    "babel-jest": "^26.1.0",
+    "electron": "^9.1.0",
+    "electron-builder": "^22.7.0",
+    "electron-packager": "^15.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^26.1.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
-    "jest": "^26.1.0",
     "redux-mock-store": "^1.5.4",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
