@@ -3,3 +3,4 @@ client/dist/app.js.map
 client/dist/app.js
 .env
 coverage
+dist
