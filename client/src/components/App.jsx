@@ -1,9 +1,14 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
+import Form from './Form';
+import NavBar from './NavBar';
+
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
+    background: white;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   h1, h2, h3, h4, h5 {
@@ -11,20 +16,19 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
-    /* background: none; */
-    /* outline:  none; */
+    background: none;
+    outline:  none;
+    border: none;
   }
 `;
 
-const Container = styled.div`
-
-`;
-
 export default () => {
+
   return (
-    <Container>
+    <div style={{margin: 'auto'}}>
       <GlobalStyle />
-      <h3>APP</h3>
-    </Container>
+      <NavBar />
+      <Form />
+    </div>
   );
 };
