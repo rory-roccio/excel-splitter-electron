@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
+import TextField from '@material-ui/core/TextField';
 import Tooltip from '@material-ui/core/Tooltip';
-
 import IconButton from '@material-ui/core/IconButton';
 import Publish from '@material-ui/icons/Publish';
 import ArrowForward from '@material-ui/icons/ArrowForward';
@@ -38,6 +36,10 @@ const useStyles = makeStyles({
   },
   destinationIcon: {
     color: props => props.destination ? '#4caf50' : '#3f51b5'
+  },
+  textField: {
+    width: 108,
+    textAlign: 'center'
   }
 });
 
@@ -70,9 +72,11 @@ export default () => {
   const [ target, setTarget ] = useState ('');
   const [ destination, setDestination ] = useState('');
   const classes = useStyles({ target: target.length > 0, destination: destination.length > 0 });
+  const [ error, setError ] = useState(false);
 
-  const handleRowCount = (e, value) => {
-    setRowCount(value);
+  const handleRowCount = (e) => {
+    setError(!e.target.value.match(/^([1-9]|[1-8][0-9]|9[0-9]|[12][0-9]{2}|300)$/)); // number between 1 and 300
+    setRowCount(e.target.value);
   };
 
   const handleTarget = (e) => {
@@ -107,13 +111,7 @@ export default () => {
         </Tooltip>
       </label>
       
-
-      <div className={classes.spacer} />
-
-      <Typography id="row-count" gutterBottom>Row Count</Typography>
-      <Slider defaultValue={200} aria-labelledby="row-count" step={5} marks={marks} min={10} max={200} onChangeCommitted={handleRowCount} valueLabelDisplay="auto"/>
-
-      <div className={classes.spacer} />
+      <TextField className={classes.textField} label="Row Count" variant="outlined" autoFocus={true} error={error} onChange={handleRowCount}/>
 
       <label htmlFor="destination-select">
         <Tooltip title="Select a path to place a new folder containing your new files" arrow placement="bottom">
@@ -125,7 +123,7 @@ export default () => {
 
       <div className={classes.spacer} />
 
-      <ConvertButton target={target} destination={destination} rowCount={rowCount}/>
+      <ConvertButton target={target} destination={destination} rowCount={rowCount} error={error}/>
 
     </div>
   );
