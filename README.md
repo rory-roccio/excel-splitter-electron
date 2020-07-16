@@ -39,3 +39,5 @@ Run command:
 open dist
 ```
 This will open Finder into the 'dist' folder inside the repository. There you should find the Mac application bundle *Electron Splitter 1.0.0.dmg*. You can double click this which will open a dialog. Drag the icon into the 'Applications' folder. You will now be able to find the working Electron Splitter in your Applications folder!
+
+*Note: Feel free to delete the repository after copying Electron Splitter 1.0.0.dmg to another location.*
