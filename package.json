@@ -13,7 +13,7 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "webpack -w",
+    "build": "webpack",
     "start": "electron .",
     "dist": "electron-builder build -m"
   },
