@@ -69,3 +69,5 @@ When you open the application, you will be met with a simple user interface. Fir
 *Note: Currently there is no feedback as to whether the operation was successful or not, but rest assured your files will be there after one click! If not, please raise the issue with **rory-roccio**.*
 
 *Note: Excel Splitter will not delete or in any way alter the target XLSX file.*
+
+***Note: This program does not in any way communicate with any external services or save any user data.***
