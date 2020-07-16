@@ -7,24 +7,18 @@ const useStyles = makeStyles({
   button: {
     height: 40,
     width: 100,
-    backgroundColor: (status) => {
-      return (
-        status === 'WAITING' ? '#3f51b5' :
-        status === 'LOADING' ? '#dce775' :
-        status === 'FAIL' ? '#f44336' :
-        status === 'SUCCESS' ? '#4caf50' : '#3f51b5'
-      );
-    },
+    backgroundColor: '#3f51b5'
   },
 });
 
-export default ({ target, destination, rowCount }) => {
+export default ({ target, destination, rowCount, error }) => {
 
   // State management
   const readyToConvert = () => {
-    return target.length > 0 && destination.length > 0 && rowCount > 0
+    return target.length > 0 && destination.length > 0 && !error;
   };
-  const classes = useStyles({ status: 'WAITING' });
+  const [ status, setStatus ] = useState('WAITING');
+  const classes = useStyles({ status });
 
   // Break up XLSX and write CSV
   const convert = () => {
@@ -55,26 +49,11 @@ export default ({ target, destination, rowCount }) => {
     });
     
     // write each chunk to a csv file
-    let count = 0;
     const baseName = path.parse(target).name;
     const newDirectory = `${destination}/${baseName}`;
     fs.mkdirSync(newDirectory);
     allRecordsAsCSV.forEach((chunk, i) => {
-      // count++;
-      fs.writeFile(`${newDirectory}/${baseName}.${i}.csv`, chunk, (err) => {
-        // if (err) {
-        //   dispatch({type: 'FAIL'});
-        // } 
-
-        // console.log(`${count} / ${chunks.length}`)
-
-        // if (count === chunks.length) {
-        //   dispatch({ type: 'SUCCESS' });
-        //   setTimeout(() => {
-        //     dispatch({ type: 'WAITING' });
-        //   })
-        // }
-      });
+      fs.writeFileSync(`${newDirectory}/${baseName}.${i}.csv`, chunk);
     });
   };
 
