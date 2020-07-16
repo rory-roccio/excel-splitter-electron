@@ -7,11 +7,12 @@ let mainWindow;
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      enableRemoteModule: true
     },
     frame: false,
     width: 420,
-    height: 330
+    height: 300
   });
 
   mainWindow.loadURL(url.format({
