@@ -5,6 +5,7 @@ This program will allow you to split an XLSX file into multiple CSV files accord
 
 ## Build and Install from Source Code (MacOS)
 
+
 1. **Clone the repository onto your machine** 
 
 From the terminal, run the command:
@@ -12,6 +13,7 @@ From the terminal, run the command:
 git clone https://github.com/rory-roccio/excel-splitter-electron.git
 ```
 This will download the source files onto your local machine.
+
 
 2. **Install dependencies**
 
@@ -24,6 +26,7 @@ From the root folder, run command:
 npm install
 ```
 This command will install external javascript libraries which the source code relies on.
+
 *Note: this requires Node installation **https://nodejs.org/en/download/***
 
 
@@ -36,6 +39,7 @@ npm run build
 ```
 This will bundle the React application and source files into one vanilla javascript file which will be used to create the MacOS application.
 
+
 4. **Build the MacOS application**
 
 From the root folder, run command:
@@ -45,7 +49,8 @@ npm run dist
 ```
 This will compile the source code into a bundle that can be run on MacOS. New files will be added to the 'dist' folder in the root directory.
 
-5. **Add application to 'Applications'**
+
+5. **Add Excel Splitter to 'Applications'**
 
 From the root folder, run command:
 
